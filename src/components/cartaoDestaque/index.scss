@@ -1,0 +1,28 @@
+.cartaoDestaque{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 90%;
+    gap: 20px;
+    transition: 0.3s;
+
+    .image{
+        border-radius: 10px;
+        width: 420px;
+        height: 260px;
+    }
+
+    &:hover{
+        transform: scale(102%);
+    }
+
+    .direita{
+        order:1;
+    }
+}

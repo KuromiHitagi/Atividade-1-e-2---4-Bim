@@ -1,0 +1,54 @@
+footer {
+  background-color: #e0e0e0;
+  padding: 0px 40px;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 14px;
+  width: 100%;
+
+  position: fixed;
+  bottom: 1px;
+}
+
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.logo-footer img {
+  width: 30px;
+  height: auto;
+}
+
+.rodape-container > div {
+  flex: 1;
+}
+
+.rodape-container h4 {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #000;
+}
+
+.rodape-container p {
+  margin: 4px 0;
+}
+
+.rodape-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+  border-top: none;
+  padding-top: 10px;
+  font-weight: bold;
+}
