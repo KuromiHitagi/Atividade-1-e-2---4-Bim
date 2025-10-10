@@ -7,7 +7,7 @@ export default function Home() {
   const cartoes = [
     {
       "imagem":"/images/jojo.jpg",
-      "titulo": "Jojo",
+      "titulo": "Jojo's Bizarre Adventure",
       "descricao": "Jojo's Bizarre Adventure é uma série de mangá escrita e ilustrada por Hirohiko Araki. A série começou a ser publicada em 1987 e é conhecida por sua arte distinta, personagens excêntricos e enredos complexos que envolvem batalhas sobrenaturais e viagens no tempo.",
       "imagemDireita":false,
       "link":"https://perfisecross.fandom.com/pt-br/wiki/Jojo%C2%B4s_Bizarre_Adventures"
@@ -35,6 +35,7 @@ export default function Home() {
             />
           )
         }
+        <div className="abu">gay</div>
       </div>
       <Footer />
     </div>

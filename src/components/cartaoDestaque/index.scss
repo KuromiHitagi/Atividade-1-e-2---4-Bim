@@ -12,6 +12,14 @@
     gap: 20px;
     transition: 0.3s;
 
+
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.2);
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        text-align:justify;
+    }
     .image{
         border-radius: 10px;
         width: 420px;
