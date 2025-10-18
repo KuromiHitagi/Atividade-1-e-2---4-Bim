@@ -3,15 +3,72 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     .form-cadastro{
-        min-height: 640px;
-        max-height: 640px;
+        min-height: 77.1vh;  
+        width: 100%;
 
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            background-color: rgb(211, 211, 211);
+            border: 2px solid black;
+            border-radius: 15px;
+
+            width: 1000px;
+            height: max-content;
+
+            gap: 40px;
+            margin-top: 50px;
+            padding-top: 20px;
+
+            .sign-up_btn{
+                width: 200px;
+                height: 50px;
+
+                border: solid 1px rgb(0, 0, 0);
+                border-radius: 13px;
+
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+
+                background-color: rgb(155, 155, 155);
+                align-self: flex-end;
+
+                cursor: pointer;
+            }
+        }
+        
+        label{
+            font-size: 18px;
+            font-weight: 500;
+            margin-left:10px;
+        }
         .form-info{
             display: flex;
             justify-content: center;
             align-items: center;
+
+            width: 960px;
+            height: 40px;
+
+            border: solid 1 px rgb(0, 0, 0);
+            border-radius: 13px;
+
+            font-size: 18px;
+            background-color: rgb(233, 233, 233);
+
         }
     }
 }

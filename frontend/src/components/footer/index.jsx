@@ -2,7 +2,7 @@ import './index.scss';
 
 export default function Footer() {
   return (
-    <footer>
+    <div className="footer">
       <div className="rodape-container">
         <div className="logo-footer">
           <img src="/images/logo.png" alt="Library Logo" />
@@ -26,6 +26,6 @@ export default function Footer() {
       <div className="rodape-footer">
         <p>2025 © Instituto Nossa Senhora de Fátima</p>
       </div>
-    </footer>
+    </div>
   );
 };

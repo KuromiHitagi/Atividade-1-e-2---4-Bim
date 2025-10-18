@@ -6,7 +6,7 @@ export async function consultarCredenciais(usuario, senha) {
              usuario,
              role,
              criacao
-        FROM tb_login
+        FROM users
        WHERE usuario = ?
          and senha = MD5(?)
     `;
@@ -17,7 +17,7 @@ export async function consultarCredenciais(usuario, senha) {
 
   export async function criarConta(novoLogin) {
     const comando = `
-      INSERT INTO tb_login (usuario, senha, role, criacao)
+      INSERT INTO users (usuario, senha, role, criacao)
                  VALUES (?, MD5(?), ?, ?);
     `;
   

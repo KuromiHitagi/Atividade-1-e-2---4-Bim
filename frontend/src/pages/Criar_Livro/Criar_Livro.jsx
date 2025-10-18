@@ -1,4 +1,6 @@
-export default function Sobre() {
+import './index.scss';
+
+export default function Criar_Livro() {
   return (
     <div>
       <h2>Sobre Nós</h2>
