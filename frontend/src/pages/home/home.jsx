@@ -2,71 +2,52 @@ import Header from "../../components/navBar";
 import Footer from "../../components/footer";
 import './home.scss';
 import CartaoDestaque from "../../components/cartaoDestaque";
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import api from "../../api";
 
 export default function Home() {
-  const cartoes = [
-    {
-      "imagem":"/images/jojo.jpg",
-      "titulo": "Jojo's Bizarre Adventure",
-      "descricao": "Jojo's Bizarre Adventure é uma série de mangá escrita e ilustrada por Hirohiko Araki. A série começou a ser publicada em 1987 e é conhecida por sua arte distinta, personagens excêntricos e enredos complexos que envolvem batalhas sobrenaturais e viagens no tempo.",
-      "imagemDireita":false,
-      "link":"https://perfisecross.fandom.com/pt-br/wiki/Jojo%C2%B4s_Bizarre_Adventures"
-    },
-    {
-      "imagem":"/images/Fullmetal01.jpg",
-      "titulo": "Fullmetal Alchemist Brotherhood",
-      "descricao": "Os irmãos Edward e Alphonse desobedecem a uma proibição e praticam a ciência oculta para ressuscitar sua mãe. 'Fullmetal Alchemist: Brotherhood' é a segunda série de anime da franquia 'Fullmetal Alchemist', dois verdadeiros clássicos da animação japonesa. No vigésimo volume do mangá, o autor Hiromu Arakawa anunciou a produção, desta vez dirigida por Yasuhiro Irie e também produzida por Bones. 'Irmandade' é considerada a obra favorita dos fãs, já que é aquela que reúne fielmente e completamente todos os fatos que aparecem no mangá e onde o que o professor Arakawa queria contar em uma vinheta sobre Edward Elric e a alquimia é refletido com mais delicadeza.",
-      "imagemDireita":true,
-      "link":"https://fma.fandom.com/wiki/Main_Page"
-    },
+  const Navigate = useNavigate();
+  const [usuario, setUsuario] =  useState("");
+  const [livros, setLivros] = useState("");
 
-    {
-      "imagem":"/images/monster.jpg",
-      "titulo": "Monster",
-      "descricao": "Monster, de Naoki Urasawa, é um suspense psicológico que segue o neurocirurgião japonês Kenzo Tenma, que trabalha na Alemanha. A trama se desenrola quando Tenma, em um ato de ética e humanidade, decide salvar a vida de uma criança ferida, em vez de priorizar um político influente. Anos depois, ele descobre que essa criança se tornou um assassino em série e o principal antagonista da história, Johan Liebert.",
-      "imagemDireita":false,
-      "link":"https://obluda.fandom.com/wiki/Monster_(Anime)"
-    },
-    {
-      "imagem":"/images/one-piece.jpg",
-      "titulo": "One Piece",
-      "descricao": "One Piece segue as aventuras de Monkey D. Luffy, um jovem que comeu acidentalmente uma fruta do diabo e ganhou um corpo elástico. Seu sonho é se tornar o Rei dos Piratas e encontrar o lendário tesouro 'One Piece'. Para isso, ele monta uma tripulação, os Piratas do Chapéu de Palha, e viaja pela Grand Line, um dos mares mais perigosos do mundo",
-      "imagemDireita":true,
-      "link":"https://onepiece.fandom.com/wiki/One_Piece_Wiki"
-    },
-    {
-      "imagem":"/images/One-Punch-Man.jpg",
-      "titulo": "One Punch Man",
-      "descricao": "A sinopse de One-Punch Man gira em torno de Saitama, um super-herói que consegue derrotar qualquer inimigo com um único soco. Após um treinamento intenso, ele se tornou invencível, mas isso o deixou profundamente entediado e desiludido com a falta de desafios em suas lutas.",
-      "imagemDireita":false,
-      "link":"https://onepunchman.fandom.com/wiki/Saitama"
+  useEffect(() => {
+    const nomeUsuario = localStorage.getItem("USUARIO");
+
+    if (nomeUsuario == null || nomeUsuario == undefined) {
+      Navigate("/login");
+    } else{
+      setUsuario(nomeUsuario);
     }
+  }, []);
 
-    /*
-      {
-        "imagem":"/images/",
-        "titulo": "",
-        "descricao": "",
-        "imagemDireita":,
-        "link":""
-      }
-    */
-  ]
+  function Sair() {
+    localStorage.removeItem("USUARIO");
+    localStorage.removeItem("TOKEN");
+    Navigate("/login");
+  }
+
+  async function listarLivro() {
+    const response = await api.get("/livros");
+    setLivros(response.data);
+  }
+
+
+
   return (
     <div>
       <Header />
       <div className="main">
-        {
-          cartoes.map(c =>
-            <CartaoDestaque 
-              imagem={c.imagem}
-              titulo={c.titulo}
-              descricao={c.descricao}
-              imagemDireita={c.imagemDireita}
-              link={c.link}
-            />
-          )
-        }
+        <h1>Bem Vindo, {usuario}</h1>
+
+        {livros.map(livros => <div>
+          <img height={150} src={livros.capa_URL} />
+          <h1>{livros.titulo}</h1>
+          <h2>{livros.autor}</h2>
+        </div>)}
+
+        <button onClick={Sair}>Sair</button>
+        <button onClick={listarLivro}>Listar</button>
       </div>
       <Footer />
     </div>

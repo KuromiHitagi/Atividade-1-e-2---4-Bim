@@ -24,7 +24,8 @@ endpoints.post('/login', async (req, resp) => {
     }
     else {
       resp.send({
-        token: generateToken(credenciais)
+        token: generateToken(credenciais),
+        usuario: credenciais.nome
       });
     }
   })
