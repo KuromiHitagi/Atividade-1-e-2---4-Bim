@@ -13,7 +13,7 @@ export default function Login() {
     useEffect(() => {
         const nomeUsuario = localStorage.getItem("USUARIO");
 
-        if(nomeUsuario != null || nomeUsuario != undefined) {
+        if (nomeUsuario != null && nomeUsuario != undefined && nomeUsuario != "") {
             Navigate("/");
         }
     }, []);

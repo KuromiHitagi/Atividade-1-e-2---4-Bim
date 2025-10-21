@@ -13,6 +13,7 @@ export default function Header() {
 
       <div className='div-links'>
         <Link className='links' to="/">Home</Link>
+        <Link className='links' to="/criar_livro">Adicionar Livro</Link>
         <Link className='links' to="/login">Login</Link>
       </div>
     </div>
