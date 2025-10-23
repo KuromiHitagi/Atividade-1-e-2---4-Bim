@@ -1,16 +1,15 @@
 import './index.scss'
 
-export default function CartaoDestaque({ imagem, titulo, descricao, imagemDireita, link }) {
+export default function CartaoDestaque({ img, titulo, autor }) {
     return (
         <div className="cartaoDestaque">
-            <div className={`imagem ${imagemDireita ? "direita" : ""}`}>
-                <img className='image' src={imagem}/>
+            <div className={"imagem"}>
+                <img className='image' height={150} src={img}/>
             </div>
 
             <div className="info">
-                <h2>{titulo}</h2>
-                <p>{descricao}</p>
-                <a href={link} target="_blank" rel="noreferrer">Saiba mais</a>
+                <h1>{titulo}</h1>
+                <h2>{autor}</h2>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import Header from "../../components/navBar/index.jsx";
 import Footer from "../../components/footer/index.jsx";
+import CartaoDestaque from "../../components/cartaoDestaque/index.jsx"
 import './home.scss';
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
@@ -14,10 +15,9 @@ export default function Home() {
     const nomeUsuario = localStorage.getItem("USUARIO");
 
     if (nomeUsuario == null || nomeUsuario == undefined) {
-      Navigate("/login");
+      Navigate("/cadastro");
     } else{
       setUsuario(nomeUsuario);
-      listarLivro();
     }
   }, []);
 
@@ -37,18 +37,22 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="main">
+      <main>
         <h1>Bem Vindo, {usuario}</h1>
 
-        {livros.map(livro => <div key={livro.id}>
-          <img height={150} src={livro.capa_URL} alt={livro.titulo} />
-          <h1>{livro.titulo}</h1>
-          <h2>{livro.autor}</h2>
-        </div>)}
+        {livros.map(livro => <div className="divLivro" key={livro.id}>
+          <CartaoDestaque
+              img={livro.capa_url.startsWith('http') ? livro.capa_url : `http://localhost:5000${livro.capa_url}`}
+              titulo={livro.titulo}
+              autor={livro.autor}
+            />
+        </div>
+          )
+        }
 
         <button onClick={Sair}>Sair</button>
         <button onClick={listarLivro}>Listar</button>
-      </div>
+      </main>
       <Footer />
     </div>
   );

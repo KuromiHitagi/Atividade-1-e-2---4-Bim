@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Footer from '../../components/footer/index.jsx';
 import Header from '../../components/navBar/index.jsx';
 import './Login.scss';
@@ -16,7 +16,7 @@ export default function Login() {
         if (nomeUsuario != null && nomeUsuario != undefined && nomeUsuario != "") {
             Navigate("/");
         }
-    }, []);
+    });
 
     async function entrar() {
         try {
@@ -36,23 +36,36 @@ export default function Login() {
 
             Navigate("/");
         } catch  (error) {
-            alert("Error");
+            alert("Error", error);
         }
     }
 
     return (
     <div>
         <Header />
-        <div className="main">
-            <label>Usuário: </label>
-            <input placeholder='usuário' value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
-            <br />
-            <label>Senha: </label>
-            <input placeholder='senha' value={senha} onChange={(e) => setSenha(e.target.value)}/>            
-            <br />
-            <br />
-            <button onClick={entrar}>Entrar</button>
-        </div>
+        <main>
+            <form onSubmit={entrar}>
+                <div className="formdiv">
+                    <label>Usuário: </label>
+                    <input className='form-info' type='text' placeholder='usuário' value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
+                </div>
+
+                <div className="formdiv">
+                    <label>Senha: </label>
+                    <input className='form-info' type='password' placeholder='senha' value={senha} onChange={(e) => setSenha(e.target.value)}/>  
+                </div>  
+
+                <div className="btns">
+                        <button className='linkTo_Sign'>
+                            <Link className='linkSign' to='/cadastro'>
+                                Não tem uma conta?
+                            </Link>
+                        </button>
+
+                        <button className='login-btn' type="submit">Entrar</button>
+                    </div>
+            </form>
+        </main>
         <Footer />
     </div>
     );  

@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="footer">
       <div className="rodape-container">
         <div className="logo-footer">
-          <img src="/images/logo.png" alt="Library Logo" />
+          <img  src="/images/logo.png" alt="Library Logo"/>
           <span>LIBRARY</span>
         </div>
         <div className="contato">

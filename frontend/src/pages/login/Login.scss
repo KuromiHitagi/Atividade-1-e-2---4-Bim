@@ -1,0 +1,118 @@
+main{
+    width: 100%;
+    min-height: 78.3vh;
+
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+        background-color: rgb(211, 211, 211);
+        border: 2px solid black;
+        border-radius: 15px;
+
+        width: 1000px;
+        height: max-content;
+
+        gap: 40px;
+        margin-top: -60px;
+        padding: 40px 20px 20px 20px;
+
+        
+        .btns{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .linkTo_Sign{
+                margin-left: 15px;
+                width: 220px;
+                height: 50px;
+
+                border: solid 1px rgb(0, 0, 0);
+                border-radius: 13px;
+
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+
+                background-color: rgb(155, 155, 155);
+                align-self: flex-end;
+
+                cursor: pointer;
+                transition: all ease-in-out 0.3s;
+
+                &:hover{
+                    background-color: rgb(126, 126, 126);
+                    transform: scale(110%);
+                }
+
+                .linkSign{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            .login-btn{
+                margin-right: 15px;
+                width: 220px;
+                height: 50px;
+
+                border: solid 1px rgb(0, 0, 0);
+                border-radius: 13px;
+
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+
+                background-color: rgb(155, 155, 155);
+                align-self: flex-end;
+
+                cursor: pointer;
+                transition: all ease-in-out 0.3s;
+
+                &:hover{
+                    background-color: rgb(126, 126, 126);
+                    transform: scale(110%);
+                }
+            }
+        }
+
+        .formdiv{
+            display: flex;
+            justify-content: center;
+            
+            flex-direction: column;
+            
+            label{
+                font-size: 18px;
+                font-weight: 500;
+                margin-left:10px;
+            }
+            .form-info{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 960px;
+                height: 40px;
+
+                border: solid 1 px rgb(0, 0, 0);
+                border-radius: 13px;
+
+                font-size: 18px;
+                background-color: rgb(233, 233, 233);
+
+                transition: all ease-in-out 0.3s;
+
+                &:hover{
+                    background-color: rgb(221, 221, 221);
+                }
+
+            }
+        }
+    }
+}
+

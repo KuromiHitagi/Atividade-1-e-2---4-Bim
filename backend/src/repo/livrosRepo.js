@@ -2,14 +2,14 @@ import { connection } from "./connection.js";
 
 export async function addLivro(novoLivro) {
     const comando = `
-    INSERT INTO books (capa_url, titulo, autor)
+    INSERT INTO books (titulo, autor, capa_url)
             VALUES (?, ?, ?);
     `;
 
     const [info] = await connection.query(comando, [
-        novoLivro.capa_URL,
         novoLivro.titulo,
         novoLivro.autor,
+        novoLivro.capaUrl
     ]);
     return info.insertId;
 }

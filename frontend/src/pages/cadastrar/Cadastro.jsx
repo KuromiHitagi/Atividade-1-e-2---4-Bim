@@ -2,10 +2,12 @@ import { useState } from 'react'
 import Footer from '../../components/footer/index.jsx'
 import Header from '../../components/navBar/index.jsx'
 import './Cadastro.scss'
+import { Link, useNavigate } from 'react-router'
 
 export default function Cadastro() {
     const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
+    const Navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,6 +27,7 @@ export default function Cadastro() {
                 alert('Conta criada com sucesso!')
                 setUsuario('')
                 setSenha('')
+                Navigate('/login')
             } else {
                 alert('Erro ao criar conta.')
             }
@@ -35,9 +38,9 @@ export default function Cadastro() {
     }
 
     return(
-        <div className='main'>
+        <div className='beforeMain'>
             <Header />
-            <div className='form-cadastro'>
+            <main>
                 <form className='form' onSubmit={handleSubmit}>
 
                     <div className="user">
@@ -50,9 +53,17 @@ export default function Cadastro() {
                         <input className='form-info' type="password" name="senha" placeholder='Insira sua senha:' value={senha} onChange={(e) => setSenha(e.target.value)} required />   
                     </div>
 
-                    <button className='sign-up_btn' type="submit">Cadastrar</button>
+                    <div className="btns">
+                        <button className='linkTo_Login'>
+                            <Link className='linkLogin' to='/login'>
+                                Já tem uma conta?
+                            </Link>
+                        </button>
+
+                        <button className='sign-up_btn' type="submit">Cadastrar</button>
+                    </div>
                 </form>
-            </div>
+            </main>
             <Footer />
         </div>
     )
